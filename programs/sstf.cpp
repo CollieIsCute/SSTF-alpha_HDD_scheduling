@@ -10,23 +10,23 @@ SSTF::SSTF(const std::string& filename) : fin(filename), totalDist{ 0 } {
 }
 
 void SSTF::walkThrough() {
-	while(!requests.empty()) {
+	std::cout << "Positions: " << nowPosition << " ";
+	while(!requests.empty())
 		walk();
-	}
-}
-
-int SSTF::getPosition() const {
-	return nowPosition;
+	std::cout << std::endl;
+	std::cout << "Total: " << totalDist << std::endl;
 }
 
 void SSTF::walk() {
 	int index = 0;
 	// if requests.size() == 1, then it's no need to compare, just take reauests[0].
 	for(int i = 0; i + 1 < requests.size(); i++) {
-		if(abs(requests[i] - nowPosition) > abs(requests[i + 1] - nowPosition))
+		if(abs(requests[index] - nowPosition) > abs(requests[i + 1] - nowPosition))
 			index = i + 1;
 	}
 	totalDist += abs(requests[index] - nowPosition);
+	nowPosition = requests[index];
+	std::cout << nowPosition << " ";
 	requests.erase(requests.begin() + index);
 	if(!fin.eof()) {
 		int temp;

@@ -3,8 +3,8 @@
 
 #include <algorithm>
 #include <fstream>
+#include <iostream>
 #include <vector>
-//#include <cmath>
 
 class SSTF {
 	std::ifstream fin;
@@ -17,7 +17,6 @@ class SSTF {
 public:
 	SSTF(const std::string& filename);
 	void walkThrough();
-	int getPosition() const;
 };
 
 #endif
