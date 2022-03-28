@@ -19,3 +19,6 @@
 - 若還有額外測資，則
   - `make clean all`
   - `./main.elf <testfile name>`
+
+## 執行結果
+![pic](pics/screenshot.jpg)
